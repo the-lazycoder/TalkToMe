@@ -1,17 +1,44 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="light">
+      <ion-title (click)="copyID()">
+        {{infoLabel}}
+      </ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> 
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content padding no-bounce>
+
+    <ion-fab right bottom>
+      <button ion-fab *ngIf="buttonLabel == 'hangup'" (click)="pushCall($event)"  color="danger"><ion-icon name="close"></ion-icon></button>
+    </ion-fab>
+
+  <ion-list>
+
+    <ion-item *ngIf="buttonLabel == 'call'">
+      <ion-input type="number" value=""  placeholder="Enter destination ID"  [(ngModel)]="distantNumber"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="buttonLabel == 'call'">
+      <button ion-button full large (click)="pushCall($event)" [ngStyle]="{'background-color': buttonColor}">{{buttonLabel}}</button>
+    </ion-item>
+
+  </ion-list>
+
+  <!-- <div>
+    <div style="text-align: center">{{infoLabel}}</div>
+    <div id="remote" style="width:100%;"></div>
+    <div id="mini"></div>
+  </div> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <!-- <p>Remote Stream</p> -->
+        <div id="remote" style="width:100%;"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="myVideo" id="mini"></div>
+
+
 </ion-content>
