@@ -30,6 +30,12 @@ plugins/android.json
 plugins/ios.json
 www/
 $RECYCLE.BIN/
+icon.png
+splash.png
+thelazycoder.keystore
+keystore generation.txt
+naviteNpmWin.bat
+releasebuild.bat
 com.thelazycoder.talktome.apk
 
 .DS_Store
